@@ -5,10 +5,10 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "dependencias", schema = "public", catalog = "BDPortaEmpleo")
 public class DependenciasEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "iddependencia")
-    private int iddependencia;
+    private Long iddependencia;
     @Basic
     @Column(name = "descripcion")
     private String descripcion;
@@ -34,11 +34,11 @@ public class DependenciasEntity {
     @Column(name = "es_secretaria")
     private Boolean esSecretaria;
 
-    public int getIddependencia() {
+    public Long getIddependencia() {
         return iddependencia;
     }
 
-    public void setIddependencia(int iddependencia) {
+    public void setIddependencia(Long iddependencia) {
         this.iddependencia = iddependencia;
     }
 
@@ -128,7 +128,7 @@ public class DependenciasEntity {
 
     @Override
     public int hashCode() {
-        int result = iddependencia;
+        Long result = iddependencia;
         result = 31 * result + (descripcion != null ? descripcion.hashCode() : 0);
         result = 31 * result + (idrafam != null ? idrafam.hashCode() : 0);
         result = 31 * result + (tipousuario != null ? tipousuario.hashCode() : 0);
@@ -137,6 +137,6 @@ public class DependenciasEntity {
         result = 31 * result + (contacto != null ? contacto.hashCode() : 0);
         result = 31 * result + (visible != null ? visible.hashCode() : 0);
         result = 31 * result + (esSecretaria != null ? esSecretaria.hashCode() : 0);
-        return result;
+        return Math.toIntExact(result);
     }
 }

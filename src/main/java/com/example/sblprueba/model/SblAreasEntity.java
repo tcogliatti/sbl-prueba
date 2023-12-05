@@ -5,10 +5,10 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "sbl_areas", schema = "public", catalog = "BDPortaEmpleo")
 public class SblAreasEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "idarea")
-    private int idarea;
+    private Long idarea;
     @Basic
     @Column(name = "idareapadre")
     private Integer idareapadre;
@@ -16,11 +16,11 @@ public class SblAreasEntity {
     @Column(name = "descripcion")
     private String descripcion;
 
-    public int getIdarea() {
+    public Long getIdarea() {
         return idarea;
     }
 
-    public void setIdarea(int idarea) {
+    public void setIdarea(Long idarea) {
         this.idarea = idarea;
     }
 
@@ -56,9 +56,9 @@ public class SblAreasEntity {
 
     @Override
     public int hashCode() {
-        int result = idarea;
+        Long result = idarea;
         result = 31 * result + (idareapadre != null ? idareapadre.hashCode() : 0);
         result = 31 * result + (descripcion != null ? descripcion.hashCode() : 0);
-        return result;
+        return Math.toIntExact(result);
     }
 }

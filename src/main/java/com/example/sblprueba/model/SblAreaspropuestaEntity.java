@@ -8,7 +8,7 @@ public class SblAreaspropuestaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "idareapropuesta")
-    private int idareapropuesta;
+    private Long idareapropuesta;
     @Basic
     @Column(name = "idarea")
     private int idarea;
@@ -16,11 +16,11 @@ public class SblAreaspropuestaEntity {
     @Column(name = "idpropuestalaboral")
     private int idpropuestalaboral;
 
-    public int getIdareapropuesta() {
+    public Long getIdareapropuesta() {
         return idareapropuesta;
     }
 
-    public void setIdareapropuesta(int idareapropuesta) {
+    public void setIdareapropuesta(Long idareapropuesta) {
         this.idareapropuesta = idareapropuesta;
     }
 
@@ -56,9 +56,9 @@ public class SblAreaspropuestaEntity {
 
     @Override
     public int hashCode() {
-        int result = idareapropuesta;
+        Long result = idareapropuesta;
         result = 31 * result + idarea;
         result = 31 * result + idpropuestalaboral;
-        return result;
+        return Math.toIntExact(result);
     }
 }

@@ -5,19 +5,19 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "sbl_estados_propuestas", schema = "public", catalog = "BDPortaEmpleo")
 public class SblEstadosPropuestasEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "idestado_propuesta")
-    private int idestadoPropuesta;
+    private Long idestadoPropuesta;
     @Basic
     @Column(name = "descripcion")
     private String descripcion;
 
-    public int getIdestadoPropuesta() {
+    public Long getIdestadoPropuesta() {
         return idestadoPropuesta;
     }
 
-    public void setIdestadoPropuesta(int idestadoPropuesta) {
+    public void setIdestadoPropuesta(Long idestadoPropuesta) {
         this.idestadoPropuesta = idestadoPropuesta;
     }
 
@@ -44,8 +44,8 @@ public class SblEstadosPropuestasEntity {
 
     @Override
     public int hashCode() {
-        int result = idestadoPropuesta;
+        Long result = idestadoPropuesta;
         result = 31 * result + (descripcion != null ? descripcion.hashCode() : 0);
-        return result;
+        return Math.toIntExact(result);
     }
 }

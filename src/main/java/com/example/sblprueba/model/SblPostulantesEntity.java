@@ -75,7 +75,7 @@ public class SblPostulantesEntity {
     private LocalidadesEntity localidad;
     @ManyToOne
     @JoinColumn(name = "idcalle")
-    private CallesEntity calle;
+    private CallesEntity calle; // ver que no esten usando esta tabla para localizar barrios
     @ManyToOne
     @JoinColumn(name = "idpais")
     private PaisesEntity pais;
